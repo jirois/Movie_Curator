@@ -26,6 +26,7 @@ const useFetch = (urlParams) => {
 
   useEffect(() => {
     fetchMovies(`${API}${urlParams}`);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [urlParams]);
 
   return {
