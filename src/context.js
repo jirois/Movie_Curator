@@ -6,7 +6,7 @@ const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
   const [query, setQuery] = useState("");
-  const { error, isLoading, data } = useFetch(`&s=${query}`);
+  const { error, isLoading, data: movies } = useFetch(`&s=${query}`);
 
   return (
     <AppContext.Provider
@@ -15,7 +15,7 @@ const AppProvider = ({ children }) => {
         setQuery,
         error,
         isLoading,
-        data,
+        movies,
       }}
     >
       {children}
@@ -23,7 +23,7 @@ const AppProvider = ({ children }) => {
   );
 };
 
-export const useGlobalData = () => {
+export const useMovieContext = () => {
   return useContext(AppContext);
 };
 
