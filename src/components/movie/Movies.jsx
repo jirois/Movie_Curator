@@ -17,7 +17,7 @@ const Movies = () => {
             <MovieCover to={`movies/${id}`} key={id}>
                 <MoviePoster src={poster === 'N/A' ? url : poster} />
                 <MovieInfo>
-                    <h2>{title}</h2>
+                    <h4>{title}</h4>
                     <p>{year}</p>
                 </MovieInfo>
             </MovieCover>

@@ -1,9 +1,9 @@
 import React, { useEffect, useRef } from 'react'
 import { useMovieContext } from '../../context'
-import { Form, FormController, FormInput, FormLabel, Wrapper } from '../Styles'
+import { ErrorDiv, Form, FormController, FormInput, FormLabel, Wrapper } from '../Styles'
 
 const SearchForm = () => {
-    const {setQuery} = useMovieContext()
+    const {error, query, setQuery} = useMovieContext()
     const searchRef = useRef()
     const onInputChange = (e) =>{
         setQuery(e.target.value)
@@ -23,11 +23,15 @@ const SearchForm = () => {
                 <FormInput 
                 type='text'
                 name='search' 
+                value={query}
                 ref={searchRef}
                 onChange={onInputChange} />
 
             </FormController>
+        {error.show && <ErrorDiv>{error.msg}</ErrorDiv>}
+
         </Form>
+
     </Wrapper>
   )
 }

@@ -80,10 +80,6 @@ export const MovieWrapper = styles.div`
 
 `;
 
-export const MovieCover = styles(Link)`
-   position: relative;
-   overflow: hidden;
-`;
 export const MoviePoster = styles.img`
  width: 100%;
  height: 400px;
@@ -100,4 +96,78 @@ export const MovieInfo = styles.div`
     background: rgba(0, 0, 0, 0.6);
     transform: translateY(100%);
     transition: all 0.3s linear;
+    display: flex:
+    flex-direction: column;
+    align-items: center;
+
+    & > h4 {
+        color: white;
+        margin-bottom: 0.25rem;
+    }
+
+    & > p {
+        color: white;
+        margin-bottom: 0;
+    } 
+
+`;
+
+export const MovieCover = styles(Link)`
+   position: relative;
+   overflow: hidden;
+
+   &:hover ${MovieInfo} {
+    transform: translateY(0);
+   }
+   
+`;
+
+export const PageError = styles.div`
+   text-align: center;
+   padding: 2rem;
+`;
+
+export const Button = styles(Link)`
+   text-transform: capitalize;
+   padding: 0.25rem 0.5rem;
+   background: hsl(210, 22%, 49%);
+   border-radius: 5px;
+   display: inline-block;
+   margin-top: 0.5rem;
+   letter-spacing: 1px;
+   color: white;
+
+`;
+
+export const SingleMovieContainer = styles.div`
+   width: 90vw;
+   max-width: 80rem;
+   margin: 4rem auto;
+   display: grid;
+   gap: 1rem;
+   color: white;
+
+   & > img {
+    width: 100%;
+    display: block;
+   }
+
+   & > p {
+    max-width: 35rem;
+    font-size: 1.2rem;
+    margin-top: 1.5rem;
+    line-height: 1.8;
+   }
+
+   @media (min-width: 992px){
+    grid-template-columns: 1fr 2fr;
+   }
+`;
+
+export const ErrorDiv = styles.div`
+   color: hsl(360, 67%, 44%);
+   text-transform: capitalize;
+   padding-top: 0.5rem;
+   letter-spacing: 1px;
+
 `;

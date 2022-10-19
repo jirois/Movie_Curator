@@ -4,12 +4,12 @@ import axios from "axios";
 const API = `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_MOVIE_API_KEY}`;
 
 const useFetch = (urlParams) => {
-  const [isLoading, setIsLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState({ show: false, msg: "" });
   const [data, setData] = useState([]);
 
   const fetchMovies = async (url) => {
-    setIsLoading(true);
+    setLoading(true);
     try {
       const { data } = await axios.get(url);
       if (data.Response === "True") {
@@ -17,16 +17,22 @@ const useFetch = (urlParams) => {
         setError({ show: false, msg: "" });
       } else {
         setError({ show: true, msg: data.Error });
-        setIsLoading(false);
       }
-    } catch (error) {
+      setLoading(false);
+    } catch (e) {
       console.log(error);
     }
   };
+
   useEffect(() => {
     fetchMovies(`${API}${urlParams}`);
   }, [urlParams]);
-  return { error, isLoading, data };
+
+  return {
+    loading,
+    error,
+    data,
+  };
 };
 
 export default useFetch;
