@@ -13,7 +13,7 @@ The app also require an imdb api key
 
 Clone this repo and install all dependencies.
 
-- `git clone https://github.com/hngi/nodejs-update.git`
+- `git clone https://github.com/jirois/Movie_Curator.git`
 - `cd upmovie` then `yarn install or npm install` to install all dependencies for the client (React)
 
 <hr>
